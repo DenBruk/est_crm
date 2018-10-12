@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example 1</title>
+    <link rel="stylesheet" href="style.css" media="all" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <div id="logo">
+        <img src="logo.png" width="250">
+      </div>
+      <h1>INVOICE</h1>
+      <div id="company" class="clearfix">
+        <div>Ruber Zeppelin</div>
+        <div>Majaka 26<br /> 11411 Tallin, Estonia</div>
+        <div>VAT Number EE10 14260 20</div>
+      </div>
+      <div id="project">
+        <div><span>КЛИЕНТ</span> CompanyName</div>
+        <div><span>ТЕЛЕФОН</span> 2123</div>
+        <div><span>EMAIL</span> <a href="mailto:john@example.com">warren@mail.ru</a></div>
+        <div><span>ДАТА</span> 2018-10-12</div>
+        <div><span>СРОК</span> 2018-10-19</div>
+      </div>
+    </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th class="service">    </th>
+            <th class="desc">Услуга</th>
+            <th>Цена</th>
+	    <th>Кол-во</th>
+            <th>Сумма</th>
+          </tr>
+        </thead>
+        <tbody>
+	<tr><td class="service"></td><td class="desc">Tratata</td><td class="unit">€250</td><td class="qty">5</td><td class="total">€1250</td></tr>
+          <tr>
+            <td colspan="4" class="grand total">TOTAL</td>
+            <td class="grand total">€1250</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="notices">
+        <div>ВАЛЮТА:</div>
+        <div class="notice">EUR</div>
+	<div>BANK:</div>
+        <div class="notice">SWEDBANK AS</div>
+	<div>ACCOUNT NUMBER:</div>
+        <div class="notice">EE192200221065801599</div>
+	<div>SWIFT::</div>
+        <div class="notice">HABAEE2X</div>
+	<div>Продажу совершил:</div>
+        <div class="notice">Владимир</div>
+      </div>
+    </main>
+    <footer>
+      Invoice was created on a computer and is valid without the signature and seal.
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example 1</title>
+    <link rel="stylesheet" href="style.css" media="all" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <div id="logo">
+        <img src="logo.png" width="250">
+      </div>
+      <h1>INVOICE 3-2-1</h1>
+      <div id="company" class="clearfix">
+        <div>Ruber Zeppelin</div>
+        <div>Majaka 26<br /> 11411 Tallin, Estonia</div>
+        <div>VAT Number EE10 14260 20</div>
+      </div>
+      <div id="project">
+        <div><span>КЛИЕНТ</span> +++CLIENT+++</div>
+        <div><span>ТЕЛЕФОН</span> +++PHONENUMBER+++</div>
+        <div><span>EMAIL</span> <a href="mailto:john@example.com">+++EMAIL+++</a></div>
+        <div><span>ДАТА</span> +++DATE+++</div>
+        <div><span>СРОК</span> +++DUEDATE+++</div>
+      </div>
+    </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th class="service">SERVICE</th>
+            <th class="desc">DESCRIPTION</th>
+            <th>Цена</th>
+	    <th>Кол-во</th>
+            <th>Сумма</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service">Design</td>
+            <td class="desc">Creating a recognizable design solution based on the company's existing visual identity</td>
+            <td class="unit">$40.00</td>
+            <td class="qty">80</td>
+            <td class="total">$1,040.00</td>
+          </tr>
+          <tr>
+            <td class="service">Development</td>
+            <td class="desc">Developing a Content Management System-based Website</td>
+            <td class="unit">$40.00</td>
+            <td class="qty">80</td>
+            <td class="total">$3,200.00</td>
+          </tr>
+	+++INFO+++
+          <tr>
+            <td colspan="4" class="grand total">TOTAL</td>
+            <td class="grand total">$6,500.00</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="notices">
+        <div>NOTICE:</div>
+        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+      </div>
+    </main>
+    <footer>
+      Invoice was created on a computer and is valid without the signature and seal.
+    </footer>
+  </body>
+</html>
