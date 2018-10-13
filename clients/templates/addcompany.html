@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+
+
+{% block events %}
+<style>
+
+form {
+  text-align: center;
+}
+</style>
+<form action="/clients/addcompany/" method="post">
+    {% csrf_token %}
+    <b>Название:</b>
+    <br>
+    {{ form.company_name }}
+    <br>
+    <b>Услуга:</b>
+    <br>
+    {{ form.email }}
+    <br>
+    <b>Дата истечения:</b>
+    <br>
+    {{ form.phone }}
+    <br>
+ <input type="submit" value="Submit" />
+</form>
+{% endblock %}

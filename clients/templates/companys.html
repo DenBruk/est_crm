@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+
 {% block events %}
     {% csrf_token %}
 {% load staticfiles %}
@@ -58,13 +59,12 @@ h1 {
     <table id = "customers" class="editableTable">
     {% for client in allClients %}
   <tr my_id={{client.id}}>
-    <td>{{ client.company }}</td> <td>{{client.service}}</td>
+     <td>{{client.company_name}}</td>
 
-    <td><div class="date" my_id={{client.id}}> {{client.date_of_exp}} </div> </td>
-    <td> <input type="checkbox" id="scales" class="cb"
-               value="scales" my_id={{client.id}} /> </td>
-    <td><a href="/clients/edit/{{client.id }}/"> Изменить </td>
-    <td><a href="/clients/delClients/{{client.id }}/"> Удалить </td>
+    <td><div  my_id={{client.id}}> {{client.email}} </div> </td>
+    <td><div  my_id={{client.id}}> {{client.phone}} </div> </td>
+    <td><a href="/clients/editCompany/{{client.id }}/"> Изменить </td>
+    <td><a href="/clients/delCompany/{{client.id }}/"> Удалить </td>
   </body>
    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
     <script>

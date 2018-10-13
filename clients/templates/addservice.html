@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block events %}
+
+<style>
+
+form {
+  text-align: center;
+}
+</style>
+<form action="/clients/addservice/" method="post">
+    {% csrf_token %}
+    <b>Название:</b>
+    <br>
+    {{ form.service_name }}
+    <br>
+ <input type="submit" value="Submit" />
+</form>
+{% endblock %}

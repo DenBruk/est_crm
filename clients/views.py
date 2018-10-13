@@ -30,6 +30,29 @@ def showClients(request): # список всех мероприятий
         return render_to_response('clients.html',args)
     else:
         return redirect('/auth/login/')
+def showCompanys(request): # список всех мероприятий
+    if request.user.is_authenticated:
+        if request.GET:
+            allClients = company.objects.all()
+        else:
+            allClients = company.objects.all()
+        args = {'allClients' : allClients}
+        print(args)
+        return render_to_response('companys.html',args)
+    else:
+        return redirect('/auth/login/')
+
+def showServices(request): # список всех мероприятий
+    if request.user.is_authenticated:
+        if request.GET:
+            allClients = services.objects.all()
+        else:
+            allClients = services.objects.all()
+        args = {'allClients' : allClients}
+        print(args)
+        return render_to_response('services.html',args)
+    else:
+        return redirect('/auth/login/')
 def extendClient(request):
     if request.user.is_authenticated:
         client_id=request.GET.get('my_id')
@@ -141,6 +164,49 @@ def edit(request, client_id):
     else:
         form = dataForm(instance=myinstance)
         return render(request, 'edit.html', {'form': form, 'id':client_id}, )
+
+def editServices(request, client_id):
+    if request.user.is_authenticated:
+        try:
+            myinstance = services.objects.get(pk=client_id)
+        except:
+            raise Http404("Такого клиента еще не создали :(")
+        if request.POST:
+            form = serviceForm(request.POST)
+            if form.is_valid():
+                form = serviceForm(request.POST, instance=myinstance)
+                form.save()
+            else:
+                print('Form is not valid')
+            return redirect('/clients/showServices/')
+        else:
+            form = serviceForm(instance=myinstance)
+            return render(request, 'editServices.html', {'form': form, 'id':client_id}, )
+    else:
+        print('No')
+        return redirect('/')
+
+def editCompany(request, client_id):
+    if request.user.is_authenticated:
+        try:
+            myinstance = company.objects.get(pk=client_id)
+        except:
+            raise Http404("Такого клиента еще не создали :(")
+        if request.POST:
+            form = clientForm(request.POST)
+            if form.is_valid():
+                form = clientForm(request.POST, instance=myinstance)
+                form.save()
+            else:
+                print('Form is not valid')
+            return redirect('/clients/showCompany/')
+        else:
+            form = clientForm(instance=myinstance)
+            return render(request, 'editCompany.html', {'form': form, 'id':client_id}, )
+    else:
+        print('No')
+        return redirect('/')
+
 def addclient(request):
     if request.user.is_authenticated:
         if request.POST:
@@ -152,7 +218,7 @@ def addclient(request):
             return redirect('/')
         else:
             form = dataForm()
-            return render(request, 'add.html', {'form': form})
+            return render(request, 'addclient.html', {'form': form})
     else:
         print('No')
         return redirect('/')
@@ -187,3 +253,26 @@ def addservice(request):
         print('No')
         return redirect('/')
 
+def delCompany(request, company_id):
+    try:
+        p = company.objects.get(pk=event_id)
+        p.delete()
+        return redirect('/clients/showCompanys/')
+    except:
+        raise Http404("Такой компании еще не создали :(")
+
+def delData(request, data_id):
+    try:
+        p = data.objects.get(pk=data_id)
+        p.delete()
+        return redirect('/clients/showAll/')
+    except:
+        raise Http404("Такой даты еще не создали :(")
+
+def delService(request, service_id):
+    try:
+        p = userEvent.objects.get(pk=service_id)
+        p.delete()
+        return redirect('/clients/showServices/')
+    except:
+        raise Http404("Такого Сервиса еще не создали :(")

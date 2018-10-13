@@ -44,55 +44,23 @@ h1 {
   width:100%; border:0; background-color:rgb(255,253,210);
 }
 
-.brd {
-  width: 700px ;
-  margin-left: auto ;
-  margin-right: auto ;
-  align:center;
-  text-align:center;
-}
-
 </style>
 
-<form action="/clients/edit/{{ id }}/" method="post">
+    <link rel="stylesheet" type="text/css" href="{% static 'mystyle.css' %}" />
+<form action="/clients/editService/{{ id }}/" method="post">
     {% csrf_token %}
     <div class='brd'>
     <b>Название:</b>
     <br>
-    {{ form.company }}
+    {{ form.service_name }}
     </div>
-    <br>
     <div class='brd'>
-    <b>Услуга:</b>
     <br>
-    {{ form.service }}
-    </div>
-    <br>
-    <div class='brd'>
-    <b>Дата истечения:</b>
-    <br>
-    {{ form.date_of_exp }}
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class='brd'>
-    <b>Количество:</b>
-    <br>
-    {{ form.qty }}
-    </div>
-    <div class = 'brd'>
-    <b>Цена:</b>
-    <br>
-
-    {{ form.price }}
-    </div>
-    <br>
-    <div class='brd'>
     <input type="submit" value="Подтвердить" />
+    </div>
   </div>
 </form>
-
+{% endblock %}
 <link href = "https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css"
          rel = "stylesheet">
 <link href = "https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css"
@@ -102,15 +70,3 @@ h1 {
   src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
   integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
   crossorigin="anonymous"></script>
-<script>
-  $(function() {
-    $( ".datepicker" ).datepicker({
-      changeMonth: true,
-      changeYear: true,
-      yearRange: "2012:2045",
-      dateFormat: 'yy-mm-dd'
-      // You can put more options here.
-    });
-  });
-  </script>
-{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'main.html' %}
+{% block events %}
+    {% csrf_token %}
+{% load staticfiles %}
+
+  <style>
+  #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+h1 {
+    color: navy;
+    margin-left: 20px;
+}
+
+.editableTable {
+  border:solid 1px; width:100%
+  }
+.editableTable td { border:solid 1px; }
+
+.editableTable .cellEditing { padding: 0; }
+
+.editableTable .cellEditing input[type=text]{
+  width:100%; border:0; background-color:rgb(255,253,210);
+}
+
+.brd {
+  width: 700px ;
+  margin-left: auto ;
+  margin-right: auto ;
+  align:center;
+  text-align:center;
+}
+
+
+</style>
+  <body>
+    <table id = "customers" class="editableTable">
+    {% for client in allClients %}
+  <tr my_id={{client.id}}>
+     <td>{{client.service_name}}</td>
+
+    <td><a href="/clients/editService/{{client.id }}/"> Изменить </td>
+    <td><a href="/clients/delService/{{client.id }}/"> Удалить </td>
+  </body>
+   <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+  </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
