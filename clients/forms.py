@@ -8,7 +8,21 @@ class dataForm(forms.ModelForm):
         fields = ('company',
                   'service',
                   'date_of_exp',
-                  'qty'
+                  'qty',
+                  'price'
         )
         widgets = {'date_of_exp': forms.DateInput(attrs={'class':'datepicker'}),
         }
+class clientForm(forms.ModelForm):
+    class Meta:
+        model = company
+        fields = ('company_name',
+                  'email',
+                  'phone'
+        )
+
+class serviceForm(forms.ModelForm):
+    class Meta:
+        model = services
+        fields = ('service_name',)
+

@@ -9,7 +9,7 @@ import codecs
 from django.conf import settings
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
-from .forms import dataForm
+from .forms import dataForm,clientForm,serviceForm
 import pdfkit
 
 
@@ -141,3 +141,49 @@ def edit(request, client_id):
     else:
         form = dataForm(instance=myinstance)
         return render(request, 'edit.html', {'form': form, 'id':client_id}, )
+def addclient(request):
+    if request.user.is_authenticated:
+        if request.POST:
+            form = dataForm(request.POST)
+            if form.is_valid():
+                form.save()
+            else:
+                print('Form is not valid')
+            return redirect('/')
+        else:
+            form = dataForm()
+            return render(request, 'add.html', {'form': form})
+    else:
+        print('No')
+        return redirect('/')
+def addcompany(request):
+    if request.user.is_authenticated:
+        if request.POST:
+            form = clientForm(request.POST)
+            if form.is_valid():
+                form.save()
+            else:
+                print('Form is not valid')
+            return redirect('/')
+        else:
+            form = clientForm()
+            return render(request, 'addcompany.html', {'form': form})
+    else:
+        print('No')
+        return redirect('/')
+def addservice(request):
+    if request.user.is_authenticated:
+        if request.POST:
+            form = serviceForm(request.POST)
+            if form.is_valid():
+                form.save()
+            else:
+                print('Form is not valid')
+            return redirect('/')
+        else:
+            form = serviceForm()
+            return render(request, 'addservice.html', {'form': form})
+    else:
+        print('No')
+        return redirect('/')
+

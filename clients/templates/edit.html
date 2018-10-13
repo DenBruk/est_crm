@@ -1,6 +1,56 @@
 {% load staticfiles %}
 
+<style>
 
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+h1 {
+    color: navy;
+    margin-left: 20px;
+}
+
+.editableTable {
+  border:solid 1px; width:100%
+  }
+.editableTable td { border:solid 1px; }
+
+.editableTable .cellEditing { padding: 0; }
+
+.editableTable .cellEditing input[type=text]{
+  width:100%; border:0; background-color:rgb(255,253,210);
+}
+
+.brd {
+  width: 700px ;
+  margin-left: auto ;
+  margin-right: auto ;
+  align:center;
+  text-align:center;
+}
+
+</style>
 <link href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
          rel = "stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'mystyle.css' %}" />
@@ -30,6 +80,12 @@
     <b>Количество:</b>
     <br>
     {{ form.qty }}
+    </div>
+    <div class = 'brd'>
+    <b>Цена:</b>
+    <br>
+    
+    {{ form.price }}
     </div>
     <br>
     <div class='brd'>
